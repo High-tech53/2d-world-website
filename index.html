@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google" content="translate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2D World</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-logo">2D World</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#shapes">Shapes</a></li>
+      <li><a href="#gallery">2D Art</a></li>
+      <li><a href="#animation">Animation</a></li>
+    </ul>
+    
+    <div class="nav-hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <!-- Hero Slider Section -->
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide active" style="background-image: url('1.jpg');">
+        <div class="slide-content">
+          <div class="slide-tag">New</div>
+          <h1>Explore 2D Universe</h1>
+          <p>Discover the beauty of two-dimensional art and design</p>
+          <a href="#about" class="slide-button">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('2.jpg');">
+        <div class="slide-content">
+          <div class="slide-tag">Featured</div>
+          <h1>Master 2D Shapes</h1>
+          <p>From circles to polygons - understand the fundamentals</p>
+          <a href="#shapes" class="slide-button">View Shapes <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('3.jpg');">
+        <div class="slide-content">
+          <div class="slide-tag">Popular</div>
+          <h1>2D Animation</h1>
+          <p>Bring your creations to life with classic techniques</p>
+          <a href="#animation" class="slide-button">See Examples <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="slider-indicators">
+      <span class="indicator active"></span>
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+    </div>
+    <div class="slider-arrow left"><i class="fas fa-chevron-left"></i></div>
+    <div class="slider-arrow right"><i class="fas fa-chevron-right"></i></div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <section id="about" class="content-section">
+      <div class="section-content">
+        <h2 data-i18n="about_title">What is 2D?</h2>
+        <p data-i18n="about_text">2D represents two-dimensional objects that have only height and width. Unlike 3D objects, they lack depth, existing purely on a flat plane. This fundamental concept forms the basis of many art forms, digital designs, and mathematical representations.</p>
+        <div class="image-container">
+          <img src="4.jpg" alt="2D Shapes" class="content-image" />
+          <div class="image-caption" data-i18n="about_caption">Basic 2D shapes form the foundation of geometry</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shapes" class="content-section">
+      <div class="section-content">
+        <h2 data-i18n="shapes_title">Examples of 2D Shapes</h2>
+        <div class="shapes-grid">
+          <div class="shape-card">
+            <div class="shape-icon circle"></div>
+            <h3 data-i18n="circle">Circle</h3>
+            <p data-i18n="circle_desc">A perfectly round shape with all points equidistant from the center</p>
+          </div>
+          <div class="shape-card">
+            <div class="shape-icon square"></div>
+            <h3 data-i18n="square">Square</h3>
+            <p data-i18n="square_desc">Four equal sides and four right angles (90°)</p>
+          </div>
+          <div class="shape-card">
+            <div class="shape-icon triangle"></div>
+            <h3 data-i18n="triangle">Triangle</h3>
+            <p data-i18n="triangle_desc">Three sides and three angles that sum to 180°</p>
+          </div>
+          <div class="shape-card">
+            <div class="shape-icon rectangle"></div>
+            <h3 data-i18n="rectangle">Rectangle</h3>
+            <p data-i18n="rectangle_desc">Four sides with opposite sides equal and four right angles</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Gallery Section -->
+    <section id="gallery" class="content-section">
+      <div class="section-content">
+        <h2 data-i18n="gallery_title">Examples of 2D Art</h2>
+        <div class="shapes-grid">
+          <div class="picture-card">
+            <div class="picture-icon" style="background-image: url('5.jpg')"></div>
+            <h3 data-i18n="nature">GameMaker Studio 2</h3>
+            <p data-i18n="nature_desc">A beginner-friendly yet powerful game development tool for creating cross-platform games from a single codebase. Offers free, Professional ($99.99 one-time), and Enterprise (console support, source access) licenses.</p>
+          </div>
+          <div class="picture-card">
+            <div class="picture-icon" style="background-image: url('6.jpg')"></div>
+            <h3 data-i18n="abstract">Godot Engine</h3>
+            <p data-i18n="abstract_desc">An open-source game engine supporting both 2D and 3D development, with dedicated tools for 2D design, physics, animation, lighting, and shaders.</p>
+          </div>
+          <div class="picture-card">
+            <div class="picture-icon" style="background-image: url('7.jpg')"></div>
+            <h3 data-i18n="characters">Toon Boom Harmony</h3>
+            <p data-i18n="characters_desc">A professional 2D animation software used in film, TV, games, and advertising, managing the full pipeline from character creation to visual effects.</p>
+          </div>
+          <div class="picture-card">
+            <div class="picture-icon" style="background-image: url('8.jpg')"></div>
+            <h3 data-i18n="patterns">Blender</h3>
+            <p data-i18n="patterns_desc">Primarily a 3D modeling and animation tool, Blender also supports 2D animation with features like Grease Pencil for drawing and creating complex shapes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="animation" class="content-section">
+      <div class="section-content">
+        <h2 data-i18n="animation_title">2D Animation</h2>
+        <p data-i18n="animation_text">2D animation is used in cartoons, games, and educational videos. It's the traditional form of animation that has evolved from hand-drawn frames to sophisticated digital techniques while maintaining its charm and expressiveness.</p>
+        
+        <div class="animation-showcase">
+          <div class="animation-description">
+            <h3 data-i18n="traditional_animation">Traditional Animation</h3>
+            <p data-i18n="traditional_desc">Hand-drawn frame-by-frame animation that creates fluid movement</p>
+            <h3 data-i18n="digital_animation">Digital Animation</h3>
+            <p data-i18n="digital_desc">Modern techniques using software to create and manipulate 2D assets</p>
+          </div>
+          <div class="animation-video">
+            <div class="video-container">
+              <iframe
+                width="580"
+                height="315"
+                src="https://www.youtube.com/embed/ZQ4bmLiQ1TA?si=jHjMFqNpvLyWgElY"
+                title="Youtube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">2D World</div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h3 data-i18n="explore">Explore</h3>
+          <a href="#about" data-i18n="about">About</a>
+          <a href="#shapes" data-i18n="shapes">Shapes</a>
+          <a href="#gallery" data-i18n="gallery">Examples of 2D Art</a>
+          <a href="#animation" data-i18n="animation">Animation</a>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="support">Support</h3>
+          <a href="#" data-i18n="faq">FAQ</a>
+          <a href="#" data-i18n="privacy">Privacy Policy</a>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="connect">Connect</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Developed by Mustafa Qarizada <span data-i18n="rights_reserved">All rights reserved</span>.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>
