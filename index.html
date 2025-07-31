@@ -5,6 +5,8 @@
   <meta name="google" content="translate">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>2D World</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -67,40 +69,72 @@
     <section id="about" class="content-section">
       <div class="section-content">
         <h2 data-i18n="about_title">What is 2D?</h2>
-        <p data-i18n="about_text">2D represents two-dimensional objects that have only height and width. Unlike 3D objects, they lack depth, existing purely on a flat plane. This fundamental concept forms the basis of many art forms, digital designs, and mathematical representations.</p>
+        <p data-i18n="about_text">A 2D (two-dimensional) shape has only length and width, with no depth. Examples:
+Circle (no sides)
+Triangle (3 sides)
+Square/Rectangle (4 sides)
+Brief History of 2D Geometry
+Ancient Times: Early humans used simple 2D shapes in cave art (≈ 30,000 BCE).
+Egypt & Babylon (≈ 3000 BCE): Used shapes for land measurement (taxes, construction).
+Greek Mathematicians (≈ 600-300 BCE):
+Pythagoras studied triangles.
+Euclid wrote Elements, defining 2D geometry formally.
+Modern Use: Essential in design, architecture, and digital graphics (pixels are 2D).
+Key Idea: 2D shapes are the foundation of math and art! ✏️📐</p>
         <div class="image-container">
-          <img src="4.jpg" alt="2D Shapes" class="content-image" />
+         <video class="content-image" autoplay loop muted playsinline>
+  <source src="animation.mp4" type="video/mp4">
+  <source src="animation.webm" type="video/webm">
+  Your browser does not support HTML5 video.
+</video>
           <div class="image-caption" data-i18n="about_caption">Basic 2D shapes form the foundation of geometry</div>
         </div>
       </div>
     </section>
 
-    <section id="shapes" class="content-section">
-      <div class="section-content">
-        <h2 data-i18n="shapes_title">Examples of 2D Shapes</h2>
-        <div class="shapes-grid">
-          <div class="shape-card">
-            <div class="shape-icon circle"></div>
-            <h3 data-i18n="circle">Circle</h3>
-            <p data-i18n="circle_desc">A perfectly round shape with all points equidistant from the center</p>
-          </div>
-          <div class="shape-card">
-            <div class="shape-icon square"></div>
-            <h3 data-i18n="square">Square</h3>
-            <p data-i18n="square_desc">Four equal sides and four right angles (90°)</p>
-          </div>
-          <div class="shape-card">
-            <div class="shape-icon triangle"></div>
-            <h3 data-i18n="triangle">Triangle</h3>
-            <p data-i18n="triangle_desc">Three sides and three angles that sum to 180°</p>
-          </div>
-          <div class="shape-card">
-            <div class="shape-icon rectangle"></div>
-            <h3 data-i18n="rectangle">Rectangle</h3>
-            <p data-i18n="rectangle_desc">Four sides with opposite sides equal and four right angles</p>
-          </div>
-        </div>
+    
+    <!-- Examples of 3D Shapes -->
+     <section id="shapes" class="content-section">
+      <h2 data-i18n="shapes-title">Examples of 3D Shapes</h2>
+    <div class="shapes-grid">
+      <div class="shape-card clickable" data-url="https://en.wikipedia.org/wiki/Cube">
+        <div class="shape-3d" id="cube-container"></div>
+        <h3 data-i18n="cube">Square</h3>
+        <p data-i18n="cube_desc">Origin: Ancient civilizations (Egypt, Mesopotamia ≈ 3000 BCE) used squares in architecture and art.
+Mathematics: Greeks (Euclid, ≈ 300 BCE) formalized its properties—equal sides, 90° angles.
+Symbolism: Represents stability, balance, and order (e.g., mandalas, city grids).
+Modern Use: Key in design, engineering, and pixel-based digital graphics.
+Fact: The square is humanity's most practical shape—perfect for building, tiling, and structure.</p>
       </div>
+
+      <div class="shape-card clickable" data-url="https://en.wikipedia.org/wiki/Sphere">
+        <div class="shape-3d" id="sphere-container"></div>
+        <h3 data-i18n="sphere">Circle</h3>
+        <p data-i18n="sphere_desc">Discovery: The circle is a natural shape (like the Sun, Moon) no single inventor.
+Early Use: Ancient Egyptians (≈ 3000 BCE) used it in wheels, pottery.
+Mathematics:
+Babylonians (≈ 2000 BCE) calculated π ≈ 3.125.
+Greeks (like Euclid, ≈ 300 BCE) defined it geometrically.
+Symbolism: Represents infinity, unity in many cultures.
+Key Fact: The circle is nature's perfect shape no beginning or end.</p>
+      </div>
+
+      <div class="shape-card clickable" data-url="https://en.wikipedia.org/wiki/Pyramid">
+        <div class="shape-3d" id="pyramid-container"></div>
+        <h3 data-i18n="pyramid">Triangle</h3>
+        <p data-i18n="pyramid_desc">Ancient Use: Early civilizations (Egypt, Babylon) used triangles in pyramids (≈ 2600 BCE) and astronomy.
+Mathematics: Greek geometers like Pythagoras (6th c. BCE) studied its properties, leading to the Pythagorean theorem.
+Symbolism: Represents stability, harmony (3 sides = past/present/future, mind/body/spirit).
+Applications: Essential in architecture, engineering (trusses), and art (Golden Triangle).
+Key Fact: The only rigid polygon—its shape never bends under stress.</p>
+      </div>
+
+      <div class="shape-card clickable" data-url="https://en.wikipedia.org/wiki/Rectangle">
+        <div class="shape-3d" id="rectangle-container"></div>
+        <h3 data-i18n="rectangle">Rectangle</h3>
+        <p data-i18n="rectangle_desc">The rectangle, a four-sided shape with right angles, dates back to ancient civilizations. Egyptians (≈ 3000 BCE) used rectangles in pyramids and architecture. Greeks like Euclid (≈ 300 BCE) defined its geometric properties. It became fundamental in Roman engineering, art (Golden Ratio), and modern design for its balance and efficiency. Unlike natural circles, rectangles are mostly human-made, symbolizing stability and order.</p>
+      </div>
+    </div>
     </section>
 
     <!-- New Gallery Section -->
@@ -108,23 +142,23 @@
       <div class="section-content">
         <h2 data-i18n="gallery_title">Examples of 2D Art</h2>
         <div class="shapes-grid">
-          <div class="picture-card">
+          <div class="picture-card clickable" data-url="https://gamemaker.io">
             <div class="picture-icon" style="background-image: url('5.jpg')"></div>
             <h3 data-i18n="nature">GameMaker Studio 2</h3>
             <p data-i18n="nature_desc">A beginner-friendly yet powerful game development tool for creating cross-platform games from a single codebase. Offers free, Professional ($99.99 one-time), and Enterprise (console support, source access) licenses.</p>
           </div>
-          <div class="picture-card">
-            <div class="picture-icon" style="background-image: url('6.jpg')"></div>
+          <div class="picture-card clickable" data-url="https://godotengine.org">
+            <div class="picture-icon" style="background-image: url('6.png')"></div>
             <h3 data-i18n="abstract">Godot Engine</h3>
             <p data-i18n="abstract_desc">An open-source game engine supporting both 2D and 3D development, with dedicated tools for 2D design, physics, animation, lighting, and shaders.</p>
           </div>
-          <div class="picture-card">
+          <div class="picture-card clickable" data-url="https://www.toonboom.com">
             <div class="picture-icon" style="background-image: url('7.jpg')"></div>
             <h3 data-i18n="characters">Toon Boom Harmony</h3>
             <p data-i18n="characters_desc">A professional 2D animation software used in film, TV, games, and advertising, managing the full pipeline from character creation to visual effects.</p>
           </div>
-          <div class="picture-card">
-            <div class="picture-icon" style="background-image: url('8.jpg')"></div>
+          <div class="picture-card clickable" data-url="https://www.blender.org">
+            <div class="picture-icon" style="background-image: url('8.jpeg')"></div>
             <h3 data-i18n="patterns">Blender</h3>
             <p data-i18n="patterns_desc">Primarily a 3D modeling and animation tool, Blender also supports 2D animation with features like Grease Pencil for drawing and creating complex shapes.</p>
           </div>
@@ -132,6 +166,7 @@
       </div>
     </section>
 
+    <!-- Animation Section -->
     <section id="animation" class="content-section">
       <div class="section-content">
         <h2 data-i18n="animation_title">2D Animation</h2>
@@ -160,6 +195,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-logo">2D World</div>
@@ -193,6 +229,9 @@
   </footer>
 
   <script src="script.js"></script>
-  <script src="i18n.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+  
 </body>
 </html>

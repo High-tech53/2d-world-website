@@ -129,4 +129,244 @@ document.addEventListener('DOMContentLoaded', function() {
       navLinks.classList.remove('active');
     }
   });
+
+  // 3D Shapes Initialization
+  const init3DShapes = () => {
+    // Common settings
+    const settings = {
+      width: 200,
+      height: 200,
+      backgroundColor: 0xf0f0f0,
+      cameraZ: 5,
+      rotateSpeed: 0.005
+    };
+
+    // Store Three.js objects for each shape
+    const shapeObjects = {};
+
+    // Initialize all 3D shapes
+    initShape('cube-container', createCube);
+    initShape('sphere-container', createSphere);
+    initShape('pyramid-container', createPyramid);
+    initShape('rectangle-container', createRectangle);
+
+    function initShape(containerId, shapeCreator) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      // Scene
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(settings.backgroundColor);
+
+      // Camera
+      const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+      camera.position.z = settings.cameraZ;
+
+      // Renderer
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(width, height);
+      container.appendChild(renderer.domElement);
+
+      // Shape
+      const shape = shapeCreator();
+      scene.add(shape);
+
+      // Controls
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableZoom = false;
+      controls.enablePan = false;
+      controls.rotateSpeed = 0.5;
+
+      // Store the objects for this shape
+      shapeObjects[containerId] = {
+        scene,
+        camera,
+        renderer,
+        controls,
+        shape
+      };
+
+      // Animation
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      // Handle resize
+      window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      });
+    }
+
+    // Shape creators
+    function createCube() {
+      const geometry = new THREE.BoxGeometry(1.3, 1.3, 1.3);
+      const material = new THREE.MeshPhongMaterial({ 
+        color: 0x0066cc,
+        shininess: 100,
+        specular: 0x111111
+      });
+      const cube = new THREE.Mesh(geometry, material);
+      
+      // Add lights
+      const ambientLight = new THREE.AmbientLight(0x404040);
+      cube.add(ambientLight);
+      
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(1, 1, 1);
+      cube.add(directionalLight);
+      
+      return cube;
+    }
+
+    function createSphere() {
+      const geometry = new THREE.SphereGeometry(1.1, 32, 32);
+      const material = new THREE.MeshPhongMaterial({ 
+        color: 0xe52e71,
+        shininess: 100,
+        specular: 0x111111
+      });
+      const sphere = new THREE.Mesh(geometry, material);
+      
+      // Add lights
+      const ambientLight = new THREE.AmbientLight(0x404040);
+      sphere.add(ambientLight);
+      
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(1, 1, 1);
+      sphere.add(directionalLight);
+      
+      return sphere;
+    }
+
+    function createPyramid() {
+      const geometry = new THREE.ConeGeometry(1, 1.8, 4);
+      const material = new THREE.MeshPhongMaterial({ 
+        color: 0x00cc66,
+        shininess: 100,
+        specular: 0x111111
+      });
+      const pyramid = new THREE.Mesh(geometry, material);
+      
+      // Add lights
+      const ambientLight = new THREE.AmbientLight(0x404040);
+      pyramid.add(ambientLight);
+      
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(1, 1, 1);
+      pyramid.add(directionalLight);
+      
+      return pyramid;
+    }
+
+    function createRectangle() {
+      const geometry = new THREE.BoxGeometry(1.8, 1.2, 0.9);
+      const material = new THREE.MeshPhongMaterial({ 
+        color: 0xff8a00,
+        shininess: 100,
+        specular: 0x111111
+      });
+      const rectangle = new THREE.Mesh(geometry, material);
+      
+      // Add lights
+      const ambientLight = new THREE.AmbientLight(0x404040);
+      rectangle.add(ambientLight);
+      
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(1, 1, 1);
+      rectangle.add(directionalLight);
+      
+      return rectangle;
+    }
+
+    // Handle click events for shape cards
+    document.querySelectorAll('.shape-card').forEach(card => {
+      const containerId = card.querySelector('.shape-3d').id;
+      
+      card.addEventListener('click', function(e) {
+        // Check if the click was on the 3D canvas
+        if (e.target === shapeObjects[containerId].renderer.domElement) {
+          return; // Let Three.js handle the rotation
+        }
+        
+        // Otherwise, handle the card click
+        const url = this.dataset.url;
+        if (url) {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      });
+      
+      // Add hover effects
+      card.addEventListener('mouseenter', () => {
+        if (!card.classList.contains('clickable')) return;
+        card.style.transform = 'translateY(-5px)';
+        card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        if (!card.classList.contains('clickable')) return;
+        card.style.transform = '';
+        card.style.boxShadow = '';
+      });
+      
+      // Allow keyboard navigation
+      if (card.classList.contains('clickable')) {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const url = card.dataset.url;
+            if (url) {
+              window.open(url, '_blank', 'noopener,noreferrer');
+            }
+          }
+        });
+      }
+    });
+  };
+
+  // Initialize 3D shapes after DOM is loaded
+  init3DShapes();
+
+  // Clickable picture cards functionality
+  document.querySelectorAll('.picture-card.clickable').forEach(card => {
+    card.addEventListener('click', function() {
+      const url = this.dataset.url;
+      if (url) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+    });
+    
+    // Add hover effects
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-5px)';
+      card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
+    
+    // Allow keyboard navigation
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const url = card.dataset.url;
+        if (url) {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      }
+    });
+  });
 });
